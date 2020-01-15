@@ -9,7 +9,7 @@ project 1 - A Random Quote Generator
 var quotes = [
   {
     quote: "It doesn’t matter if care is cutting-edge and technologically advanced; if it" + 
-    "doesn’t take the patient’s goals into account, it may not be worth doing.",
+    " doesn’t take the patient’s goals into account, it may not be worth doing.",
     source: "Amy Berman"
   },
   {
@@ -23,8 +23,8 @@ var quotes = [
     "desperately needs is not innovative technology alone, but first and foremost it is an experience (for both patients and providers)" +
     "that can elevate that care and compassion that is provided to patients. Technology designed with these principles" +
     "top of mind, that can seamlessly integrate in the complex, generally dated systems typically used in healthcare is" + 
-     "essential as these older or less optimally designed systems will not be retired immediately.",
-     source: "Rebecca Kaul, chief innovation officer, University of Texas MD Anderson Cancer Center"
+     " essential as these older or less optimally designed systems will not be retired immediately.",
+     source: "Rebecca Kaul, Chief Innovation Officer, University of Texas MD Anderson Cancer Center"
   },
   {
     quote: "There is no greatness where there is no simplicity, goodness and truth.",
@@ -46,24 +46,31 @@ function getRandomQuote(){
   return quotes[randomNumber];  
 }
 
+
+/***
+ * `printQuote` function. Prints a random quote to the page when the "show another quote" button is 
+ * clicked
+***/
 function printQuote() {
   var randomQuote = getRandomQuote();
   var html = ' ';
   html += '<p class= "quote">' + randomQuote.quote + '</p>';
-  html += '<p class="source">' + randomQuote.source + </p>
+  html += '<p class="source">' + randomQuote.source;
+  if (randomQuote.hasOwnProperty("citation")){
+    html += '<span class= "citation">' + randomQuote.citation + '</span>';
+  }
+
+  if (randomQuote.hasOwnProperty("year") ){
+    html += '<span class= "year">' + randomQuote.year + '</span>';
+  }
+
+  html += '</p>';
+  
+  document.getElementById("quote-box").innerHTML = html;
 }
 
-
-
 /***
- * `printQuote` function
-***/
-
-
-
-/***
- * click event listener for the print quote button
- * DO NOT CHANGE THE CODE BELOW!!
+ * Event Listener that allows a new quote to appear on the page "show another quote" button is clicked
 ***/
 
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
