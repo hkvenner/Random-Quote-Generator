@@ -1,5 +1,4 @@
 /** 
- * Treehouse FSJS Techdegree
  * Random Quote Generator - CSS
  */
 
@@ -108,6 +107,16 @@ h1 {
 .citation:before {
   content: ", ";
   font-style: normal;
+}
+
+.tags-headline:before {
+  content: ", ";
+  font-style: bold;
+}
+
+.tags:before {
+  content: "#";
+  font-style: bold;
 }
 
 .year:before {

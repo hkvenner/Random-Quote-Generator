@@ -24,11 +24,13 @@ var quotes = [
     "that can elevate that care and compassion that is provided to patients. Technology designed with these principles" +
     "top of mind, that can seamlessly integrate in the complex, generally dated systems typically used in healthcare is" + 
      " essential as these older or less optimally designed systems will not be retired immediately.",
-     source: "Rebecca Kaul, Chief Innovation Officer, University of Texas MD Anderson Cancer Center"
+     source: "Rebecca Kaul, Chief Innovation Officer, University of Texas MD Anderson Cancer Center",
+     tags: ["healthcare", "innovation"]
   },
   {
     quote: "There is no greatness where there is no simplicity, goodness and truth.",
-    source: "Leo Tolstoy"
+    source: "Leo Tolstoy",
+    tags: ["simplicity"]
   },
   {
     quote: " Technology can become the '\"wings\"' that will allow the educational world to fly farther and faster than " +
@@ -64,13 +66,29 @@ function printQuote() {
     html += '<span class= "year">' + randomQuote.year + '</span>';
   }
 
+  if (randomQuote.tags ){
+    html += '<span class= "tags-headline"> Tags: </span>';
+    for (let i =0 ; i < randomQuote.tags.length ; i ++){
+      html += '<span class= "tags">' + randomQuote.tags[i] + ' </span>';
+    }
+  }
+
   html += '</p>';
   
   document.getElementById("quote-box").innerHTML = html;
 }
 
+function changeBackgroundColor(){
+  var colors = ["#FFC0CB", "#cc5500", "#add8e6", "#ffcccb"];
+  var randomColor = colors[Math.floor(Math.random()* colors.length)];
+  document.body.style.background = randomColor;
+}
+
+
 /***
- * Event Listener that allows a new quote to appear on the page "show another quote" button is clicked
+ * Event Listener that allows a new quote to appear on the page when the "show another quote" button 
+ * is clicked
 ***/
 
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
+document.getElementById('load-quote').addEventListener("click", changeBackgroundColor, false);
