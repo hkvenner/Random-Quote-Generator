@@ -79,11 +79,14 @@ function printQuote() {
 }
 
 function changeBackgroundColor(){
-  var colors = ["#FFC0CB", "#cc5500", "#add8e6", "#ffcccb"];
+  //randomly changes the background colors - burgundy, burnt orange, navy blue, indigo
+  var colors = ["#800020", "#cc5500","#000080", "#4b0082"];
   var randomColor = colors[Math.floor(Math.random()* colors.length)];
   document.body.style.background = randomColor;
 }
-
+//auto-refreshes the quote
+var intervalID = window.setInterval(printQuote, 20000);
+var intervalID = window.setInterval(changeBackgroundColor, 20000);
 
 /***
  * Event Listener that allows a new quote to appear on the page when the "show another quote" button 
