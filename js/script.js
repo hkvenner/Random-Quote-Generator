@@ -84,7 +84,7 @@ function changeBackgroundColor(){
   var randomColor = colors[Math.floor(Math.random()* colors.length)];
   document.body.style.background = randomColor;
 }
-//auto-refreshes the quote
+//auto-refreshes the quote and background color
 var intervalID = window.setInterval(printQuote, 20000);
 var intervalID = window.setInterval(changeBackgroundColor, 20000);
 
